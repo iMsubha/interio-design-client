@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import ServiceDetail from '../../Home/ServiceDetail/ServiceDetail';
 const Services = () => {
     const [services,setServices] = useState([])
@@ -11,12 +12,14 @@ const Services = () => {
        })
     }, [])
     return (
-        <div className="d-flex" id="services" >
-            <h2>Services</h2>
+        <section> 
+        <h1 className="text-muted text-center pb-5 pt-5">Our Services</h1>
+        <Container className="d-flex flex-wrap justify-content-center align-items-center" id="services" fluid> 
             {
                 services.map(service => <ServiceDetail service={service}></ServiceDetail>)
             }
-        </div>
+        </Container>
+        </section>
     );
 };
 

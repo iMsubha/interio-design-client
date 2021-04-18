@@ -5,7 +5,7 @@ import slider2Img from '../../../images/slider-2.png';
 import slider3Img from '../../../images/slider-3.png';
 const HeaderMain = () => {
   return (
-    <div>
+    <div className="mb-5">
       <Carousel>
         <Carousel.Item interval={1000}>
           <img

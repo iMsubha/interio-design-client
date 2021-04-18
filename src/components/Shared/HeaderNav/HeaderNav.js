@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Button, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
-
+import logo from '../../../images/logo.png';
 const HeaderNav = () => {
   const [loginUser] = useContext(UserContext);
  
   return (
     <nav className="m-2">
       <Navbar variant="light">
-        <Navbar.Brand href="#home">logo</Navbar.Brand>
+        <Navbar.Brand className="d-flex align-items-start" href="#home">
+          <Image src={logo} width={40}></Image>
+          <p className="pt-1 pl-1 ">INTERIO DESIGN</p>
+        </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Link className="mr-5">
             <Link className="dark" to="/home">Home</Link>
@@ -27,7 +30,7 @@ const HeaderNav = () => {
           </Nav.Link>
           {loginUser && <p>{loginUser.name}</p>}
             <Button className="main-button border-0">
-                <Link className="text-light" to="/login">Login</Link>
+                <Link style={{letterSpacing:'5px'}} className="text-uppercase text-light font-weight-bolder text-center" to="/login">Login</Link>
             </Button>
         </Nav>
       </Navbar>

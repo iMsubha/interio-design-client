@@ -14,8 +14,8 @@ const Testimonial = () => {
     }, [])
     return (
         <div>
-            <h4>Testimonial</h4>
-            <Row>
+            <h1 className="text-muted text-center pb-5 pt-5">Testimonial</h1>
+            <Row className="flex-wrap m-2">
              {
                   reviews.map(review => <ReviewCard reviewData={review}></ReviewCard> )
              }

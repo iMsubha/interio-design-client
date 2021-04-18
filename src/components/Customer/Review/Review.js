@@ -1,9 +1,10 @@
 import AddPhotoAlternateRoundedIcon from '@material-ui/icons/AddPhotoAlternateRounded';
 import axios from "axios";
 import React, { useState } from 'react';
+import { Image } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import sideImage from '../../../images/sideImage.jpg';
 import CustomerSidebar from '../../Shared/CustomerSidebar/CustomerSidebar';
-
 const Review = ({user}) => {
     const {name,email} = user;
     console.log(user);
@@ -58,39 +59,41 @@ const Review = ({user}) => {
         <CustomerSidebar/>
         <div className="d-flex flex-column ">
             {name}
-            <h5 >Please Enter Your Review Here</h5>
-       
         <form 
         action="/review"
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-lg d-flex flex-column"
+        className="rounded-lg d-wrap flex-column"
        
       >
-        <div className="d-flex">
+         <h5 className="text-center text-muted">Please Enter Your Review Here</h5>
+        <div className="d-wrap justify-content-center">
           <div className="d-flex flex-column mr-3">
-            <label for="name">Name</label>
+            <label for="name" className="text-muted font-weight-bold">Name</label>
             <input
               name="name"
               placeholder={name}
               {...register("name")}
             />
-            {errors.name && <p className="errorText">Please enter your name</p>}
+            {errors.name && <small className="errorText">Please enter your name</small>}
           </div>
 
           <div className="d-flex flex-column">
-          <label for="email">Email</label>
+          <label for="email" className="text-muted font-weight-bold">Email</label>
           <input
             defaultValue={email}
             placeholder="bluebill1049@hotmail.com"
             type="email"
             {...register("email")}
           />
+          {
+            errors.email && <small className="errorText">Please enter your email</small>
+          }
           </div>
         </div>
 
-        <div className="d-flex">
+        <div className="d-wrap">
           <div className="d-flex flex-column mr-3">
-          <label for="review">Review</label>
+          <label for="review" className="text-muted font-weight-bold">Review</label>
           <textarea 
           name="review"  
           type="text" 
@@ -99,8 +102,25 @@ const Review = ({user}) => {
           ></textarea>
           </div>
 
+          <div className="mr-3">
+            <label for="price" className="text-muted font-weight-bold">Rating</label>
+            <input
+              style={{ width: "90px" }}
+              defaultValue=""
+              className="d-flex"
+              type="number"
+              name="price"
+              id=""
+              {...register("price", {
+                validate: (value) => value >  0 && value < 6,
+              })}
+            />
+            {
+              errors &&  <small  className="errorText">Enter valid number [1-5]</small>
+            }
+          </div>
 
-          <div className="d-flex flex-column justify-content-center align-items-center">
+          <div className="d-flex justify-content-start">
           <input
             onChange={handleImageUpload}
              type="file"
@@ -108,19 +128,22 @@ const Review = ({user}) => {
              name="profileImageURL"
              accept="image/*"
             />
-          <label for="file"  className="upload-image font-weight-bold">
+          <label for="file"  className="upload-image font-weight-bold ">
           <AddPhotoAlternateRoundedIcon></AddPhotoAlternateRoundedIcon>
           Upload Profile</label>  
           </div>
         </div>
 
         <input 
-            className="mt-1 mb-3 main-button font-weight-bold"
+            className="mt-2 mb-3 main-button font-weight-bold "
             type="submit"
             value="Save"
          />
       </form>
       </div>
+         <div>
+           <Image src={sideImage} />
+         </div>
     </div>
     );
 };

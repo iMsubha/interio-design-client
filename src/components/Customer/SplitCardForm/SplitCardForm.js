@@ -1,11 +1,12 @@
 import {
-    CardCvcElement,
-    CardExpiryElement,
-    CardNumberElement,
-    useElements,
-    useStripe
+  CardCvcElement,
+  CardExpiryElement,
+  CardNumberElement,
+  useElements,
+  useStripe
 } from "@stripe/react-stripe-js";
 import React, { useMemo, useState } from "react";
+import { Card } from "react-bootstrap";
 const useOptions = () => {
   const options = useMemo(
     () => ({
@@ -61,76 +62,81 @@ const SplitCardForm = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit} >
-        <label >
-          Card number
-          <CardNumberElement  
-            options={options}
-            onReady={() => {
-              console.log("CardNumberElement [ready]");
-            }}
-            onChange={(event) => {
-              console.log("CardNumberElement [change]", event);
-            }}
-            onBlur={() => {
-              console.log("CardNumberElement [blur]");
-            }}
-            onFocus={() => {
-              console.log("CardNumberElement [focus]");
-            }}
-          />
-        </label>
-        
-        <label>
-          Expiration date
-          <CardExpiryElement 
-            options={options}
-            onReady={() => {
-              console.log("CardNumberElement [ready]");
-            }}
-            onChange={(event) => {
-              console.log("CardNumberElement [change]", event);
-            }}
-            onBlur={() => {
-              console.log("CardNumberElement [blur]");
-            }}
-            onFocus={() => {
-              console.log("CardNumberElement [focus]");
-            }}
-          />
-        </label>
-        
-        <label>
-          CVC
-          <CardCvcElement 
-            options={options}
-            onReady={() => {
-              console.log("CardNumberElement [ready]");
-            }}
-            onChange={(event) => {
-              console.log("CardNumberElement [change]", event);
-            }}
-            onBlur={() => {
-              console.log("CardNumberElement [blur]");
-            }}
-            onFocus={() => {
-              console.log("CardNumberElement [focus]");
-            }}
-          />
-        </label>
     
-        <button  type="submit" disabled={!stripe}>
-          Pay
-        </button>
+     <Card>
+      <form onSubmit={handleSubmit}>
+        <div className="d-flex flex-column justify-content-center">
+          <label className="form-control border-0">
+            Card number
+            <CardNumberElement
+              options={options}
+              onReady={() => {
+                console.log("CardNumberElement [ready]");
+              }}
+              onChange={(event) => {
+                console.log("CardNumberElement [change]", event);
+              }}
+              onBlur={() => {
+                console.log("CardNumberElement [blur]");
+              }}
+              onFocus={() => {
+                console.log("CardNumberElement [focus]");
+              }}
+            />
+          </label>
+
+          <label className="form-control border-0">
+            Expiration date
+            <CardExpiryElement
+              options={options}
+              onReady={() => {
+                console.log("CardNumberElement [ready]");
+              }}
+              onChange={(event) => {
+                console.log("CardNumberElement [change]", event);
+              }}
+              onBlur={() => {
+                console.log("CardNumberElement [blur]");
+              }}
+              onFocus={() => {
+                console.log("CardNumberElement [focus]");
+              }}
+            />
+          </label>
+
+          <label className="form-control border-0">
+            CVC
+            <CardCvcElement
+              options={options}
+              onReady={() => {
+                console.log("CardNumberElement [ready]");
+              }}
+              onChange={(event) => {
+                console.log("CardNumberElement [change]", event);
+              }}
+              onBlur={() => {
+                console.log("CardNumberElement [blur]");
+              }}
+              onFocus={() => {
+                console.log("CardNumberElement [focus]");
+              }}
+            />
+          </label>
+          <button type="submit" disabled={!stripe} className="text-dark font-weight-bold mt-2 p-3">
+            Pay
+          </button>
+        </div>
       </form>
+      <div className="d-flex justify-content-center">
       {paymentErrorMessage && (
-        <p style={{ color: "red" }}>{paymentErrorMessage}</p>
-      )}
-      {paymentSuccessMessage && (
-        <p style={{ color: "green" }}>{paymentSuccessMessage}</p>
-      )}
-    </div>
+          <p style={{ color: "red" }}>{paymentErrorMessage}</p>
+        )}
+        {paymentSuccessMessage && (
+          <p style={{ color: "green" }}>{paymentSuccessMessage}</p>
+        )}
+      </div>
+      </Card>
+    
   );
 };
 

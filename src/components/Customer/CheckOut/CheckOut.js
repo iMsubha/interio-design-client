@@ -13,7 +13,7 @@ const CheckOut = ({ user }) => {
     <div className="d-flex">
       <CustomerSidebar />
 
-      <Container className="p-0">
+      <Container className="p-0 m-0">
         <Nav className="bg-light d-flex justify-content-between">
           <h3 className="p-2" style={{ color: "#b0dab9" }}>
             Check Out

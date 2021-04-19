@@ -5,7 +5,7 @@ const MemberCard = ({member}) => {
     console.log(member);
     return (
         <Col>
-        <Card className="d-flex justify-content-center align-items-center border-top-0 border-right-0 border-left-0">   
+        <Card className="d-flex justify-content-center align-items-center border-top-0 border-right-0 border-left-0 mb-5">   
             <div>
               <Image src={member.imageURL} width={200} height={200}></Image>
             </div>

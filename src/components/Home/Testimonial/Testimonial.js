@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import ReviewCard from '../ReviewCard/ReviewCard';
-
 const Testimonial = () => {
     const [reviews,setReviews] = useState([])
     useEffect(() => {
@@ -12,13 +11,15 @@ const Testimonial = () => {
         //console.log(data);
        })
     }, [])
+   
     return (
-        <div>
-            <h1 className="text-muted text-center pb-5 pt-5">Testimonial</h1>
+        <div style={{backgroundColor:'#ddd6f3'}} className="pb-5">
+            <h5 className="text-muted text-center pb-5 pt-5">Testimonials</h5>
             <Row className="flex-wrap m-2">
              {
                   reviews.map(review => <ReviewCard key={review._id} reviewData={review}></ReviewCard> )
              }
+            
              </Row>
         </div>
     );

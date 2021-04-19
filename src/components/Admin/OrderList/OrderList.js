@@ -1,11 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Container, Nav } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import { UserContext } from "../../../App";
-
+import 'react-dropdown/style.css';
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
- const [loginUser] = useContext(UserContext);
+  // const options = [
+  //   'pending', 'on going', 'done'
+  // ];
+  
+//  const [loginUser] = useContext(UserContext);
   useEffect(() => {
     fetch("http://localhost:8000/order")
     .then((res) => res.json())
@@ -15,17 +18,7 @@ const OrderList = () => {
     }
     );
 }, []);
-// useEffect(() => {
-//   fetch("http://localhost:8000/admin?email="+ loginUser.email)
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log(data[0].email);
-//     //setOrders(data)
-//   }
-//   );
-// }, [loginUser.email]);
 
-  
   return (
     <Container className="p-0">
       <Nav className="bg-light d-flex justify-content-start">
@@ -37,7 +30,7 @@ const OrderList = () => {
         <Table responsive=" sm md xl">
           <thead>
             <tr>
-              <th>User Name</th>
+              <th>Name</th>
               <th>Email ID</th>
               <th>Service</th>
               <th>Pay With</th>
@@ -51,7 +44,7 @@ const OrderList = () => {
                 <td>{order.email}</td>
                 <td>{order.title}</td>
                 <td>Card payment</td>
-                <td>{order.status}</td>
+                <td>{order.status}</td>    
               </tr>
             </tbody>
           ))}

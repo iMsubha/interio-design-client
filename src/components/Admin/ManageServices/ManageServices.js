@@ -1,8 +1,35 @@
-import React from "react";
-import { Container, Nav } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Card, Container, Image, Nav } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import deleteIcon from '../../../icons/001-trash.svg';
+import updateIcon from '../../../icons/002-edit.svg';
 import Sidebar from "../../Shared/Sidebar/Sidebar";
-
 const ManageServices = () => {
+  // const [loginUser] = useContext(UserContext);
+  const [services,setServices] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:8000/services')
+    .then(res=> res.json())
+    .then(data => {
+        console.log(data);
+        setServices(data)
+    })
+ }, [])
+
+ const updateService ={}
+
+ const deleteService =(event, id)=>{
+  console.log(event.target.parentNode)
+  fetch(`http://localhost:8000/delete/${id}`,{
+    method: 'DELETE'
+  }).then((res) => res.json())
+  .then(result =>{
+    if(result){
+     event.target.parentNode.style.display = 'none';
+    }
+  })
+}
   return (
     <div className="d-flex">
       <Sidebar />
@@ -10,9 +37,35 @@ const ManageServices = () => {
         <Nav className="bg-light d-flex justify-content-start">
           <h3 className="p-2" style={{ color: "#b0dab9" }}>
             Manage Services
-          </h3>
+          </h3>       
         </Nav>
-        <h2>ManageServices</h2>
+        <Card className="m-5 shadow-md rounded-lg">
+        <Table responsive=" sm md xl">
+          <thead>
+            <tr>
+              <th>Service Name</th>
+              <th>Email ID</th>
+              <th>Service</th>
+              <th>Update/delete</th>
+            </tr>
+          </thead>
+          {services.map((service) => (
+            <tbody>
+              <tr>
+                <td>{service.title}</td>
+                <td>{service.email}</td>
+                <td>{service.price}</td>
+                <td className="d-flex justify-content-center">
+                <Image className="mr-4"  onClick={(event) =>updateService(event, service._id)} 
+                  src={updateIcon} width={20}/>   
+               <Image  onClick={(event) =>deleteService(event, service._id)} 
+                src={deleteIcon} width={20}/>   
+          </td>
+              </tr>
+            </tbody>
+          ))}
+        </Table>
+      </Card>
         </Container>
     </div>
   );

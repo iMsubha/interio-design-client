@@ -1,0 +1,9 @@
+.info-style-dark {
+  position: relative;
+  background-color: #1c1c1c;
+  padding: 30px 15px;
+  text-align: center;
+  box-sizing: border-box;
+  top: -45px;
+  z-index: 100;
+}

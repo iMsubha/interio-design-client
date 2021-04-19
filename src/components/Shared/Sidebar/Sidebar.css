@@ -1,0 +1,7 @@
+.sidebar-style {
+  background-color: none;
+  font-family: "Poppins", sans-serif;
+}
+.sidebar-style:hover {
+  background-color: #b0dab9;
+}

@@ -1,5 +1,5 @@
 // import Sidebar from "../Sidebar/Sidebar";
-import { default as React } from "react";
+import React from "react";
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import OrderList from '../OrderList/OrderList';
 

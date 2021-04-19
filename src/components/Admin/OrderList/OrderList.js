@@ -1,63 +1,63 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useContext, useEffect, useState } from "react";
+import { Card, Container, Nav } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import HeaderNav from "../../Shared/HeaderNav/HeaderNav";
+import { UserContext } from "../../../App";
+
 const OrderList = () => {
-   const orders=[
-       {
-           name:"abe",
-           email:"abe@gmail.com",
-           service:"Bedroom Interior Design",
-           payment:"Cradit Card",
-           status:""
-
-       },
-       {
-        name:"ayuie",
-        email:"abe@gmail.com",
-        service:"Bedroom Interior Design",
-        payment:"Cradit Card",
-        status:"pending"
-    },
-    {
-        name:"rtyi",
-        email:"abe@gmail.com",
-        service:"Bedroom Interior Design",
-        payment:"Cradit Card",
-        status:"done"
-
+  const [orders, setOrders] = useState([]);
+ const [loginUser] = useContext(UserContext);
+  useEffect(() => {
+    fetch("http://localhost:8000/order")
+    .then((res) => res.json())
+    .then((data) => {
+     // console.log(data);
+      setOrders(data)
     }
-   ]
+    );
+}, []);
+// useEffect(() => {
+//   fetch("http://localhost:8000/admin?email="+ loginUser.email)
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data[0].email);
+//     //setOrders(data)
+//   }
+//   );
+// }, [loginUser.email]);
+
+  
   return (
-    <section>
-      <HeaderNav />
-      <h2>Order List</h2>
+    <Container className="p-0">
+      <Nav className="bg-light d-flex justify-content-start">
+        <h3 className="p-2" style={{ color: "#b0dab9" }}>
+          Order List
+        </h3>
+      </Nav>
       <Card className="m-5 shadow-md rounded-lg">
-          <Table responsive=" sm md xl">
-            <thead>
+        <Table responsive=" sm md xl">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Email ID</th>
+              <th>Service</th>
+              <th>Pay With</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          {orders.map((order) => (
+            <tbody>
               <tr>
-                <th>User Name</th>
-                <th>Email ID</th>
-                <th>Service</th>
-                <th>Pay With</th>
-                <th>Status</th>
+                <td>{order.name}</td>
+                <td>{order.email}</td>
+                <td>{order.title}</td>
+                <td>Card payment</td>
+                <td>{order.status}</td>
               </tr>
-            </thead>
-            {orders.map((order) => (
-              <tbody>
-                <tr>
-                  <td>{order.name}</td> 
-                  <td>{order.email}</td>
-                  <td>{order.service}</td>
-                  <td>{order.payment}</td>
-                  <td>{order.status}</td>
-                </tr>
-              </tbody>
-            ))}
-          </Table>
-        </Card>
-   
-    </section>
+            </tbody>
+          ))}
+        </Table>
+      </Card>
+      </Container>
   );
 };
 

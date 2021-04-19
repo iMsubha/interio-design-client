@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderNav from "../../Shared/HeaderNav/HeaderNav";
+import { Nav } from "react-bootstrap";
 import Sidebar from "../../Shared/Sidebar/Sidebar";
 import ServiceForm from "../ServiceForm/ServiceForm";
 
@@ -8,9 +8,12 @@ const AddServices = () => {
   return (
     <div className="d-flex" >
       <Sidebar />
-      <div  style={{  width: '100%' }}>
-        <HeaderNav />
-        <h2>Add Services</h2>
+      <div>
+      <Nav className="bg-light d-flex justify-content-start">
+          <h3 className="p-2" style={{ color: "#b0dab9" }}>
+          Add Services
+          </h3>
+        </Nav>
         <ServiceForm/>
       </div>
     </div>

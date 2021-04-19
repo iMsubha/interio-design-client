@@ -9,7 +9,7 @@ const Testimonial = () => {
        .then(res=> res.json())
        .then(data =>{
         setReviews(data)
-        console.log(data);
+        //console.log(data);
        })
     }, [])
     return (
@@ -17,7 +17,7 @@ const Testimonial = () => {
             <h1 className="text-muted text-center pb-5 pt-5">Testimonial</h1>
             <Row className="flex-wrap m-2">
              {
-                  reviews.map(review => <ReviewCard reviewData={review}></ReviewCard> )
+                  reviews.map(review => <ReviewCard key={review._id} reviewData={review}></ReviewCard> )
              }
              </Row>
         </div>

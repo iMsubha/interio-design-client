@@ -16,27 +16,27 @@ const CustomerSidebar = () => {
     return (
         <div
             style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-            <CDBSidebar textColor="#fff" backgroundColor="#333">
+            <CDBSidebar textColor="black" backgroundColor="#ddd6f3">
               <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                 <NavLink exact to="/home"
                   href="/"
                   className="text-decoration-none"
-                  style={{ color: 'inherit' }}
+                  style={{ color: 'black', }}
                 >
-                  logo 
+                  Interio Design 
                 </NavLink>
               </CDBSidebarHeader>
       
               <CDBSidebarContent className="sidebar-content">
                 <CDBSidebarMenu>
-                  <NavLink exact to="/customer" activeClassName="activeClicked">
-                    <CDBSidebarMenuItem icon="columns">Services List</CDBSidebarMenuItem>
+                  <NavLink exact to="/customer">
+                    <CDBSidebarMenuItem icon="columns"  className="sidebar-style ">Services List</CDBSidebarMenuItem>
                   </NavLink>
-                  <NavLink exact to="/checkOut" activeClassName="activeClicked">
-                    <CDBSidebarMenuItem icon="table">Check Out</CDBSidebarMenuItem>
+                  <NavLink exact to="/checkOut">
+                    <CDBSidebarMenuItem icon="table"  className="sidebar-style">Check Out</CDBSidebarMenuItem>
                   </NavLink>
-                  <NavLink exact to="/review" activeClassName="activeClicked">
-                    <CDBSidebarMenuItem icon="chart-line">
+                  <NavLink exact to="/review">
+                    <CDBSidebarMenuItem icon="chart-line"  className="sidebar-style">
                       Review
                     </CDBSidebarMenuItem>
                   </NavLink>

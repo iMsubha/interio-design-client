@@ -6,7 +6,7 @@ import "./ServiceForm.css";
 const ServiceForm = () => {
   // const inputStyle = { width: "250px" };
   const [imageURL, setImageURL] = useState(null);
-  const [message, setMessage] = useState(false)
+  const [message, setMessage] = useState()
   const {
     register,
     handleSubmit,
@@ -56,12 +56,12 @@ const ServiceForm = () => {
 
   return (
     <div>
-      <form
+      <form 
         action="/addServices"
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-lg d-flex flex-column"
+        className=" rounded-lg"
       >
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           <div className="d-flex flex-column mr-3">
             <label for="title">Service Title</label>
             <input
@@ -85,10 +85,10 @@ const ServiceForm = () => {
               {...register("email")}
             />
           </div>
-        </div>
+        {/* </div> */}
 
-        <div className="d-flex ">
-          <div className="d-flex flex-column mr-3">
+        {/* <div className="d-flex "> */}
+          <div className="mr-3">
             <label for="details">Service Detail</label>
             <textarea
               name="details"
@@ -112,10 +112,10 @@ const ServiceForm = () => {
               })}
             />
             {
-              errors && <small  className="errorText">Enter valid number</small>
+              errors.price && <small  className="errorText">Enter valid number</small>
             }
           </div>
-          <div className="d-flex justify-content-start">
+          <div className="d-flex justify-content-start align-items-center mt-1">
             <input
               onChange={handleImageUpload}
               type="file"
@@ -128,17 +128,17 @@ const ServiceForm = () => {
               Upload Image
             </label>
           </div>
-        </div>
-         
-        <input
-          className="mt-1 mb-3 main-button font-weight-bold"
+          <input
+          className="main-button font-weight-normal text-dark"
           type="submit"
           value="Save"
         />
-      
+        </div>
+         
          {
-          message ? <p>New Service created!</p>:<p  className="errorText">Service not created</p>
+          message && <small>New Service created!</small>
          }
+        
         
       </form>
     </div>

@@ -16,7 +16,7 @@ const Services = () => {
         <h1 className="text-muted text-center pb-5 pt-5">Our Services</h1>
         <Container className="d-flex flex-wrap justify-content-center align-items-center" id="services" fluid> 
             {
-                services.map(service => <ServiceDetail service={service}></ServiceDetail>)
+                services.map(service => <ServiceDetail key={service._id}  service={service}></ServiceDetail>)
             }
         </Container>
         </section>

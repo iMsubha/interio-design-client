@@ -10,12 +10,12 @@
 .social-media .icon {
   height: 40px;
   width: 40px;
-  color: #1cc7c1;
+  color: #ddd6f3;
   border-radius: 50%;
-  border: 1px solid #6acece;
+  border: 1px solid #ddd6f3;
   padding: 10px;
 }
 .social-media .active-icon {
-  background-color: #6acece;
+  background-color: #ddd6f3;
   color: white;
 }

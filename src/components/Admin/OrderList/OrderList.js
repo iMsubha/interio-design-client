@@ -4,16 +4,11 @@ import Table from "react-bootstrap/Table";
 import 'react-dropdown/style.css';
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
-  // const options = [
-  //   'pending', 'on going', 'done'
-  // ];
-  
-//  const [loginUser] = useContext(UserContext);
   useEffect(() => {
     fetch("http://localhost:8000/order")
     .then((res) => res.json())
     .then((data) => {
-     // console.log(data);
+     //console.log(data);
       setOrders(data)
     }
     );

@@ -5,13 +5,6 @@ import FooterCol from '../FooterCol/FooterCol';
 import './Footer.css';
 
 const Footer = () => {
-    const noNamed = [
-        {name: "Emergency Dental Care" , link: "/emergency"},
-        {name: "Check Up" , link: "/checkup"},
-        {name: "Treatment of Personal Diseases" , link: "/personal-treatment"},
-        {name: "Tooth Extraction" , link: "/tooth-extract"},
-        {name: "Check Up" , link: "/checkup"},
-    ]
     const ourAddress = [
         {name: "Dhanmondi, 1205 Dhaka" , link: "//google.com/map"}
     ]
@@ -34,10 +27,9 @@ const Footer = () => {
         <footer className="footer-area clear-both">
             <div className="container pt-5">
                 <div className="row py-5">
-                    <FooterCol key={1} menuTitle={"."} menuItems={noNamed}/>
-                    <FooterCol key={2} menuTitle="Services" menuItems={services}/>
-                    <FooterCol key={3} menuTitle="Company" menuItems={company}/>
-                    <FooterCol key={4} menuTitle="Our Address" menuItems={ourAddress}> 
+                    <FooterCol key={1} menuTitle="Services" menuItems={services}/>
+                    <FooterCol key={2} menuTitle="Company" menuItems={company}/>
+                    <FooterCol key={3} menuTitle="Our Address" menuItems={ourAddress}> 
                         <ul className="social-media list-inline">
                             <li className="list-inline-item"><a href="//facebook.com"><FontAwesomeIcon className="icon active-icon" icon={faFacebookF} /></a></li>
                             <li className="list-inline-item"><a href="//google.com"><FontAwesomeIcon className="icon" icon={faGooglePlusG} /></a></li>

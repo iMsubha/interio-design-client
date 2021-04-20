@@ -133,13 +133,12 @@ const ServiceForm = () => {
           type="submit"
           value="Save"
         />
-        </div>
-         
-         {
+          
+          {
           message && <small>New Service created!</small>
          }
         
-        
+        </div> 
       </form>
     </div>
   );

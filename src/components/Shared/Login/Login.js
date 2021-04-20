@@ -217,9 +217,9 @@ const Login = () => {
             <Link to={`/`}>
               <input
                 onClick={handleSubmit}
-                className="p-2"
+                className="p-2 text-dark font-weight-normal"
                 style={{
-                  backgroundColor: "#ff7b54",
+                  backgroundImage: "linear-gradient(45deg, #ddd6f3 0%, #b0dab9 100%)",
                   border: "none",
                   width: "350px",
                   color: "white",
@@ -231,9 +231,9 @@ const Login = () => {
           ) : (
             <input
               onClick={handleSubmit}
-              className="p-2"
+              className="p-2 text-dark font-weight-normal"
               style={{
-                backgroundColor: "#ff7b54",
+                backgroundImage: "linear-gradient(45deg, #ddd6f3 0%, #b0dab9 100%)",
                 border: "none",
                 width: "350px",
                 color: "white",
@@ -248,7 +248,7 @@ const Login = () => {
               <p>Don't have an account?</p>
               <Link
                 to={`/login`}
-                style={{ color: "#ff7b54" }}
+                style={{ color: "#ddd6f3" }}
                 onClick={() => setNewUser(true)}
               >
                 Create an account
@@ -263,7 +263,7 @@ const Login = () => {
                 onClick={() => {
                   history.go(0);
                 }}
-                style={{ color: "#ff7b54" }}
+                style={{ color: "#ddd6f3" }}
               >
                 Login
               </Link>

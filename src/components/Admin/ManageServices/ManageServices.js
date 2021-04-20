@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Card, Container, Image, Nav } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import deleteIcon from '../../../icons/001-trash.svg';
-import updateIcon from '../../../icons/002-edit.svg';
 import Sidebar from "../../Shared/Sidebar/Sidebar";
 const ManageServices = () => {
   // const [loginUser] = useContext(UserContext);
@@ -16,8 +15,6 @@ const ManageServices = () => {
         setServices(data)
     })
  }, [])
-
- const updateService ={}
 
  const deleteService =(event, id)=>{
   console.log(event.target.parentNode)
@@ -46,18 +43,16 @@ const ManageServices = () => {
               <th>Service Name</th>
               <th>Email ID</th>
               <th>Service</th>
-              <th>Update/delete</th>
+              <th>Delete</th>
             </tr>
           </thead>
           {services.map((service) => (
             <tbody>
               <tr>
-                <td>{service.title}</td>
-                <td>{service.email}</td>
-                <td>{service.price}</td>
-                <td className="d-flex justify-content-center">
-                <Image className="mr-4"  onClick={(event) =>updateService(event, service._id)} 
-                  src={updateIcon} width={20}/>   
+                <td key={service._id}>{service.title}</td>
+                <td key={service._id}>{service.email}</td>
+                <td key={service._id}>{service.price}</td>
+                <td key={service._id} className="d-flex justify-content-center">
                <Image  onClick={(event) =>deleteService(event, service._id)} 
                 src={deleteIcon} width={20}/>   
           </td>

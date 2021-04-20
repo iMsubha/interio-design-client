@@ -14,7 +14,7 @@ const Testimonial = () => {
    
     return (
         <div style={{backgroundColor:'#ddd6f3'}} className="pb-5">
-            <h5 className="text-muted text-center pb-5 pt-5">Testimonials</h5>
+            <h3 className="text-muted text-center pb-5 pt-5 text-uppercase">Testimonials</h3>
             <Row className="flex-wrap m-2">
              {
                   reviews.map(review => <ReviewCard key={review._id} reviewData={review}></ReviewCard> )

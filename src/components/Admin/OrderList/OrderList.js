@@ -5,7 +5,7 @@ import 'react-dropdown/style.css';
 const OrderList = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/order")
+    fetch("https://fierce-beyond-59826.herokuapp.com/order")
     .then((res) => res.json())
     .then((data) => {
      //console.log(data);

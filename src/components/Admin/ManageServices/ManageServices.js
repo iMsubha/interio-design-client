@@ -4,11 +4,10 @@ import Table from "react-bootstrap/Table";
 import deleteIcon from '../../../icons/001-trash.svg';
 import Sidebar from "../../Shared/Sidebar/Sidebar";
 const ManageServices = () => {
-  // const [loginUser] = useContext(UserContext);
   const [services,setServices] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:8000/services')
+    fetch('https://fierce-beyond-59826.herokuapp.com/services')
     .then(res=> res.json())
     .then(data => {
         console.log(data);
@@ -18,7 +17,7 @@ const ManageServices = () => {
 
  const deleteService =(event, id)=>{
   console.log(event.target.parentNode)
-  fetch(`http://localhost:8000/delete/${id}`,{
+  fetch(`https://fierce-beyond-59826.herokuapp.com/delete/${id}`,{
     method: 'DELETE'
   }).then((res) => res.json())
   .then(result =>{
@@ -55,7 +54,7 @@ const ManageServices = () => {
                 <td key={service._id} className="d-flex justify-content-center">
                <Image  onClick={(event) =>deleteService(event, service._id)} 
                 src={deleteIcon} width={20}/>   
-          </td>
+              </td>
               </tr>
             </tbody>
           ))}

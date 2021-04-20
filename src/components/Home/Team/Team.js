@@ -5,7 +5,7 @@ import MemberCard from '../MemberCard/MemberCard';
 const Team = () => {
     const [members,setMembers] = useState([])
     useEffect(() => {
-       fetch('http://localhost:8000/admin')
+       fetch('https://fierce-beyond-59826.herokuapp.com/admin')
        .then(res=> res.json())
        .then(data => {
            console.log(data);

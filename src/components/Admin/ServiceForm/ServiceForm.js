@@ -22,7 +22,7 @@ const ServiceForm = () => {
       details: data.details,
       price: data.price,
     };
-    const url = `http://localhost:8000/addServices`;
+    const url = `https://fierce-beyond-59826.herokuapp.com/addServices`;
     console.log(serviceData);
     // console.log(serviceData.email);
     fetch(url, {

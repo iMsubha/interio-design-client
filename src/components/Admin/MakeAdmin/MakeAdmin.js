@@ -15,7 +15,6 @@ const MakeAdmin = () => {
     } = useForm();
   
     const onSubmit = (data) => {
-      // alert(JSON.stringify(data));
       const adminData = {
         name: data.name,
         imageURL: imageURL,
@@ -23,9 +22,8 @@ const MakeAdmin = () => {
         profession: data.profession,
         
       };
-      const url = `http://localhost:8000/addAdmin`;
-      console.log(adminData);
-      // console.log(adminData.email);
+      const url = `https://fierce-beyond-59826.herokuapp.com/addAdmin`;
+     // console.log(adminData);
       fetch(url, {
         method: "POST",
         headers: {
@@ -60,8 +58,6 @@ const MakeAdmin = () => {
     <div className="d-flex">
       <Sidebar />
       <Container className="p-0">
-        {/* <HeaderNav/> */}
-        {/* style={{'backgroundColor':'#b0dab9'}} */}
         <Nav className="bg-light d-flex justify-content-start">
           <h3 className="p-2" style={{ color: "#b0dab9" }}>
             Add An Admin

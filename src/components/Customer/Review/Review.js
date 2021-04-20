@@ -24,7 +24,7 @@ const Review = ({ user }) => {
       review: data.review,
       rating: data.rating
     };
-    const url = `http://localhost:8000/addReviews`;
+    const url = `https://fierce-beyond-59826.herokuapp.com/addReviews`;
     console.log(reviewData);
     // console.log(reviewData.email);
     fetch(url, {

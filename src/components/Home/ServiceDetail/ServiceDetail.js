@@ -20,7 +20,7 @@ const ServiceDetail = ({service}) => {
             price: service.price,
             status: 'pending'
         }
-        const url = `http://localhost:8000/addOrders`;
+        const url = `https://fierce-beyond-59826.herokuapp.com/addOrders`;
         console.log(newOrder);
         fetch(url, {
             method: "POST",

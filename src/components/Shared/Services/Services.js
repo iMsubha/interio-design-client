@@ -4,7 +4,7 @@ import ServiceDetail from '../../Home/ServiceDetail/ServiceDetail';
 const Services = () => {
     const [services,setServices] = useState([])
     useEffect(() => {
-       fetch('http://localhost:8000/services')
+       fetch('https://fierce-beyond-59826.herokuapp.com/services')
        .then(res=> res.json())
        .then(data => {
            console.log(data);
